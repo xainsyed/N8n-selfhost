@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: n8nselfhost
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npx n8n start
+    envVars:
+      - key: N8N_ENCRYPTION_KEY
+        value: zainkey123
+      - key: WEBHOOK_URL
+        value: https://n8nselfhost.onrender.com
+      - key: GENERIC_TIMEZONE
+        value: UTC
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: zain
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: yourpassword
+      - key: EXECUTIONS_PROCESS
+        value: main
