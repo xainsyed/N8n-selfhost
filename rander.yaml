@@ -1,23 +1,22 @@
 services:
   - type: web
-    name: n8nselfhost
-    env: node
+    name: n8n-selfhost
+    env: docker
     plan: free
     region: frankfurt
-    buildCommand: npm install
-    startCommand: npx n8n start
+    dockerfilePath: Dockerfile
     envVars:
       - key: N8N_ENCRYPTION_KEY
-        value: zainkey123
-      - key: WEBHOOK_URL
-        value: https://n8nselfhost.onrender.com
-      - key: GENERIC_TIMEZONE
-        value: UTC
+        value: yourencryptionkey
       - key: N8N_BASIC_AUTH_ACTIVE
         value: "true"
       - key: N8N_BASIC_AUTH_USER
-        value: zain
+        value: admin
       - key: N8N_BASIC_AUTH_PASSWORD
-        value: yourpassword
-      - key: EXECUTIONS_PROCESS
-        value: main
+        value: admin123
+      - key: N8N_HOST
+        value: 0.0.0.0
+      - key: N8N_PORT
+        value: 5678
+      - key: WEBHOOK_URL
+        value: https://n8n-selfhost.onrender.com
